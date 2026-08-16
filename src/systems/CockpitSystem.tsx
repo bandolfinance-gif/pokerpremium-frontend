@@ -92,3 +92,5 @@ import HUDOverdrivePulse from '../components/hud/HUDOverdrivePulse';
 <HUDOverdrivePulse />
 import HUDNeuralScan from '../components/hud/HUDNeuralScan';
 <HUDNeuralScan />
+import HUDSpectrumWave from '../components/hud/HUDSpectrumWave';
+<HUDSpectrumWave />
