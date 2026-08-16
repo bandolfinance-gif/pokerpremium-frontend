@@ -82,3 +82,5 @@ import HUDActionFlow from '../components/hud/HUDActionFlow';
 <HUDActionFlow />
 import HUDIAState from '../components/hud/HUDIAState';
 <HUDIAState />
+import HUDProfilePanel from '../components/hud/HUDProfilePanel';
+<HUDProfilePanel />
