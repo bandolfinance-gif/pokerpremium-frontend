@@ -84,3 +84,5 @@ import HUDIAState from '../components/hud/HUDIAState';
 <HUDIAState />
 import HUDProfilePanel from '../components/hud/HUDProfilePanel';
 <HUDProfilePanel />
+import HUDMatrixGrid from '../components/hud/HUDMatrixGrid';
+<HUDMatrixGrid />
