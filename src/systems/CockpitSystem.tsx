@@ -88,3 +88,5 @@ import HUDMatrixGrid from '../components/hud/HUDMatrixGrid';
 <HUDMatrixGrid />
 import HUDThermalMap from '../components/hud/HUDThermalMap';
 <HUDThermalMap />
+import HUDOverdrivePulse from '../components/hud/HUDOverdrivePulse';
+<HUDOverdrivePulse />
