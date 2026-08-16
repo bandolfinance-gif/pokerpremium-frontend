@@ -1,51 +1,49 @@
 import React, { useEffect, useState } from 'react';
 
-type CockpitMood = 'CALM' | 'FOCUSED' | 'ALERT' | 'OVERDRIVE';
+type Mood = 'CALM' | 'FOCUSED' | 'ALERT' | 'OVERDRIVE';
 
 const DealerIAReactive: React.FC = () => {
-  const [mood, setMood] = useState<CockpitMood>('CALM');
+  const [mood, setMood] = useState<Mood>('CALM');
   const [activity, setActivity] = useState(0);
 
   useEffect(() => {
-    const handleCockpitEvent = (event: Event) => {
-      const custom = event as CustomEvent<{ type: string }>;
-      const type = custom.detail?.type;
+    const handleEvent = (event: Event) => {
+      const e = event as CustomEvent<{ type: string }>;
+      const type = e.detail?.type;
 
-      setActivity(prev => Math.min(prev + 1, 100));
+      setActivity(prev => Math.min(prev + 4, 100));
 
-      if (type === 'click') {
-        setMood('FOCUSED');
-      } else if (type === 'key') {
-        setMood('ALERT');
-      } else if (type === 'move') {
-        setMood('CALM');
-      }
+      if (type === 'click') setMood('FOCUSED');
+      if (type === 'key') setMood('ALERT');
+      if (type === 'move') setMood('CALM');
+
+      if (activity > 80) setMood('OVERDRIVE');
     };
 
-    window.addEventListener('cockpit-event', handleCockpitEvent);
+    window.addEventListener('cockpit-event', handleEvent);
 
     const decay = setInterval(() => {
-      setActivity(prev => Math.max(prev - 1, 0));
-    }, 800);
+      setActivity(prev => Math.max(prev - 2, 0));
+    }, 600);
 
     return () => {
-      window.removeEventListener('cockpit-event', handleCockpitEvent);
+      window.removeEventListener('cockpit-event', handleEvent);
       clearInterval(decay);
     };
-  }, []);
+  }, [activity]);
 
-  const getLine = () => {
-    if (mood === 'OVERDRIVE') return 'Sistema em overdrive. Cada decisão importa.';
-    if (mood === 'ALERT') return 'Leitura intensa. Você está ajustando o curso.';
-    if (mood === 'FOCUSED') return 'Foco detectado. Vamos jogar sério.';
-    return 'Cockpit está estável. Pronto quando você estiver.';
-  };
+  const line = (() => {
+    if (mood === 'OVERDRIVE') return 'Você está intenso… gosto disso. Vamos acelerar.';
+    if (mood === 'ALERT') return 'Percebi sua mudança de ritmo. Estou acompanhando.';
+    if (mood === 'FOCUSED') return 'Seu foco aumentou. Estou aqui com você.';
+    return 'Tudo está estável. Pronto para o próximo movimento.';
+  })();
 
   return (
-    <div style={{ position: 'absolute', bottom: 120, right: 40, color: '#00eaff' }}>
+    <div style={{ position: 'absolute', bottom: 120, right: 40, color: '#00eaff', fontSize: '14px' }}>
       <div>DEALER IA // MODE: {mood}</div>
       <div>ACTIVITY: {activity}%</div>
-      <div>{getLine()}</div>
+      <div>{line}</div>
     </div>
   );
 };
