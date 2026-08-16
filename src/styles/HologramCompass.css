@@ -1,0 +1,40 @@
+.compass-container {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,234,255,0.4);
+  box-shadow: 0 0 20px rgba(0,234,255,0.6);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.compass-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    rgba(0,234,255,0.3),
+    rgba(0,234,255,0.0) 40%
+  );
+  animation: compassSpin 6s linear infinite;
+}
+
+.compass-needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 60px;
+  background: rgba(255,0,0,0.8);
+  transform: translate(-50%, -100%);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(255,0,0,0.8);
+}
+
+@keyframes compassSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
