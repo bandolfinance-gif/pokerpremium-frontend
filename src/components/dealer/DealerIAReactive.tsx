@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
 type Mood = 'CALM' | 'FOCUSED' | 'ALERT' | 'OVERDRIVE';
+type Profile = 'CALMA' | 'ANALITICA' | 'DIRETA' | 'ESTRATEGICA';
 
 const DealerIAReactive: React.FC = () => {
   const [mood, setMood] = useState<Mood>('CALM');
   const [activity, setActivity] = useState(0);
   const [contextLine, setContextLine] = useState('Tudo está estável por aqui.');
+  const [profile, setProfile] = useState<Profile>('CALMA');
+
+  const profileLines: Record<Profile, string> = {
+    CALMA: 'Mantendo estabilidade. Vamos seguir no seu ritmo.',
+    ANALITICA: 'Processando padrões da mesa. Sua linha está clara.',
+    DIRETA: 'Decisão objetiva. Continue.',
+    ESTRATEGICA: 'Ajustando leitura estratégica. Cada ação importa.'
+  };
 
   useEffect(() => {
     const handleEvent = (event: Event) => {
@@ -13,6 +22,12 @@ const DealerIAReactive: React.FC = () => {
       const type = e.detail?.type;
 
       setActivity(prev => Math.min(prev + 5, 100));
+
+      // Alternância automática de perfis
+      if (activity < 30) setProfile('CALMA');
+      else if (activity < 60) setProfile('ANALITICA');
+      else if (activity < 85) setProfile('DIRETA');
+      else setProfile('ESTRATEGICA');
 
       // Eventos do cockpit
       if (type === 'click') {
@@ -99,9 +114,11 @@ const DealerIAReactive: React.FC = () => {
   return (
     <div style={{ position: 'absolute', bottom: 120, right: 40, color: '#00eaff', fontSize: '14px' }}>
       <div>DEALER IA // MODO: {mood}</div>
+      <div>PERFIL: {profile}</div>
       <div>ATIVIDADE: {activity}%</div>
       <div>{moodLine}</div>
       <div style={{ marginTop: '6px', opacity: 0.85 }}>{contextLine}</div>
+      <div style={{ marginTop: '6px', opacity: 0.65 }}>{profileLines[profile]}</div>
     </div>
   );
 };
