@@ -5,26 +5,41 @@ type Mood = 'CALM' | 'FOCUSED' | 'ALERT' | 'OVERDRIVE';
 const DealerIAReactive: React.FC = () => {
   const [mood, setMood] = useState<Mood>('CALM');
   const [activity, setActivity] = useState(0);
+  const [lastAction, setLastAction] = useState<string>('Nenhuma ação recente');
 
   useEffect(() => {
     const handleEvent = (event: Event) => {
       const e = event as CustomEvent<{ type: string }>;
       const type = e.detail?.type;
 
-      setActivity(prev => Math.min(prev + 4, 100));
+      setActivity(prev => Math.min(prev + 5, 100));
 
-      if (type === 'click') setMood('FOCUSED');
-      if (type === 'key') setMood('ALERT');
-      if (type === 'move') setMood('CALM');
+      if (type === 'click') {
+        setMood('FOCUSED');
+        setLastAction('Você fez uma ação precisa.');
+      }
 
-      if (activity > 80) setMood('OVERDRIVE');
+      if (type === 'key') {
+        setMood('ALERT');
+        setLastAction('Mudança detectada. Você ajustou algo.');
+      }
+
+      if (type === 'move') {
+        setMood('CALM');
+        setLastAction('Movimento suave. Tudo fluindo.');
+      }
+
+      if (activity > 85) {
+        setMood('OVERDRIVE');
+        setLastAction('Seu ritmo está intenso.');
+      }
     };
 
     window.addEventListener('cockpit-event', handleEvent);
 
     const decay = setInterval(() => {
-      setActivity(prev => Math.max(prev - 2, 0));
-    }, 600);
+      setActivity(prev => Math.max(prev - 3, 0));
+    }, 500);
 
     return () => {
       window.removeEventListener('cockpit-event', handleEvent);
@@ -33,10 +48,13 @@ const DealerIAReactive: React.FC = () => {
   }, [activity]);
 
   const line = (() => {
-    if (mood === 'OVERDRIVE') return 'Você acelerou o ritmo. Estou acompanhando cada detalhe.';
-    if (mood === 'ALERT') return 'Percebi sua mudança de foco. Vamos manter a precisão.';
-    if (mood === 'FOCUSED') return 'Boa concentração. Continue assim.';
-    return 'Tudo está estável por aqui. Quando quiser, seguimos.';
+    if (mood === 'OVERDRIVE')
+      return 'Você está num ritmo forte. Estou acompanhando tudo com atenção.';
+    if (mood === 'ALERT')
+      return 'Percebi sua mudança de foco. Vamos manter a clareza nas decisões.';
+    if (mood === 'FOCUSED')
+      return 'Boa precisão. Continue nesse ritmo.';
+    return 'Tudo está estável. Quando quiser avançar, estou aqui.';
   })();
 
   return (
@@ -44,6 +62,7 @@ const DealerIAReactive: React.FC = () => {
       <div>DEALER IA // MODO: {mood}</div>
       <div>ATIVIDADE: {activity}%</div>
       <div>{line}</div>
+      <div style={{ marginTop: '6px', opacity: 0.8 }}>{lastAction}</div>
     </div>
   );
 };
