@@ -5,7 +5,7 @@ type Mood = 'CALM' | 'FOCUSED' | 'ALERT' | 'OVERDRIVE';
 const DealerIAReactive: React.FC = () => {
   const [mood, setMood] = useState<Mood>('CALM');
   const [activity, setActivity] = useState(0);
-  const [contextLine, setContextLine] = useState('Tudo está estável por aqui.');
+  const [contextLine, setContextLine] = useState('Sistema estável. Monitorando parâmetros.');
 
   useEffect(() => {
     const handleEvent = (event: Event) => {
@@ -16,22 +16,22 @@ const DealerIAReactive: React.FC = () => {
 
       if (type === 'click') {
         setMood('FOCUSED');
-        setContextLine('Boa ação. Você está mantendo o ritmo.');
+        setContextLine('Ação registrada. Precisão adequada.');
       }
 
       if (type === 'key') {
         setMood('ALERT');
-        setContextLine('Mudança detectada. Ajuste preciso.');
+        setContextLine('Entrada detectada. Ajuste processado.');
       }
 
       if (type === 'move') {
         setMood('CALM');
-        setContextLine('Movimento suave. Tudo fluindo bem.');
+        setContextLine('Movimento suave. Fluxo operacional normal.');
       }
 
       if (activity > 85) {
         setMood('OVERDRIVE');
-        setContextLine('Seu ritmo está intenso. Estou acompanhando cada detalhe.');
+        setContextLine('Alta atividade. Recomendação: manter consistência.');
       }
     };
 
@@ -49,12 +49,12 @@ const DealerIAReactive: React.FC = () => {
 
   const moodLine = (() => {
     if (mood === 'OVERDRIVE')
-      return 'Você está num ritmo forte. Vamos manter a clareza.';
+      return 'Ritmo elevado. Ajustando análise para acompanhar.';
     if (mood === 'ALERT')
-      return 'Percebi sua mudança de foco. Continue atento.';
+      return 'Mudança de foco detectada. Mantendo precisão.';
     if (mood === 'FOCUSED')
-      return 'Boa precisão. Seu foco está sólido.';
-    return 'Tudo está estável. Quando quiser avançar, estou aqui.';
+      return 'Concentração adequada. Continuando monitoramento.';
+    return 'Operação estável. Sistema pronto para novas ações.';
   })();
 
   return (
