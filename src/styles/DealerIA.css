@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: hologramPulse 3s infinite ease-in-out;
+  animation: hologramPulse 3s infinite ease-in-out, hologramFloat 6s infinite ease-in-out;
 }
 
 .dealer-avatar {
@@ -27,6 +27,7 @@
   background-size: cover;
   background-position: center;
   filter: drop-shadow(0 0 12px #00eaff);
+  animation: avatarSpeak 1.2s infinite ease-in-out;
 }
 
 .dealer-text {
@@ -41,6 +42,18 @@
   0% { transform: scale(1); opacity: 0.7; }
   50% { transform: scale(1.1); opacity: 1; }
   100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes hologramFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes avatarSpeak {
+  0% { transform: scale(1); filter: drop-shadow(0 0 12px #00eaff); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 20px #00eaff); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 12px #00eaff); }
 }
 
 @keyframes textGlow {
