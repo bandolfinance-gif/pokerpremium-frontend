@@ -90,3 +90,5 @@ import HUDThermalMap from '../components/hud/HUDThermalMap';
 <HUDThermalMap />
 import HUDOverdrivePulse from '../components/hud/HUDOverdrivePulse';
 <HUDOverdrivePulse />
+import HUDNeuralScan from '../components/hud/HUDNeuralScan';
+<HUDNeuralScan />
