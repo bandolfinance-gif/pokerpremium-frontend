@@ -6,6 +6,7 @@ import FuturisticTable from '../components/table/FuturisticTable';
 import SoundSystem from './SoundSystem';
 import NeonSidePanels from '../components/cockpit/NeonSidePanels';
 import HUDEnergyBar from '../components/cockpit/HUDEnergyBar';
+import EdgeLights from '../components/cockpit/EdgeLights';
 
 const CockpitSystem: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const CockpitSystem: React.FC = () => {
       <NeonParticles />
       <NeonSidePanels />
       <HUDEnergyBar />
+      <EdgeLights />
       <HologramHUD />
       <FuturisticTable />
       <DealerIA />
