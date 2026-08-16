@@ -8,12 +8,14 @@ import NeonSidePanels from '../components/cockpit/NeonSidePanels';
 import HUDEnergyBar from '../components/cockpit/HUDEnergyBar';
 import EdgeLights from '../components/cockpit/EdgeLights';
 import GlowGrid from '../components/cockpit/GlowGrid';
+import PulseCore from '../components/cockpit/PulseCore';
 
 const CockpitSystem: React.FC = () => {
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
       <SoundSystem />
       <GlowGrid />
+      <PulseCore />
       <NeonParticles />
       <NeonSidePanels />
       <HUDEnergyBar />
