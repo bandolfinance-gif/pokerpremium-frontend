@@ -20,11 +20,13 @@ import HologramCompass from '../components/cockpit/HologramCompass';
 import StatusPanel from '../components/cockpit/StatusPanel';
 import CockpitCommandPanel from '../components/cockpit/CockpitCommandPanel';
 import AdvancedIndicators from '../components/cockpit/AdvancedIndicators';
+import HologramSoundFX from '../components/cockpit/HologramSoundFX';
 
 const CockpitSystem: React.FC = () => {
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
       <SoundSystem />
+      <HologramSoundFX />
       <AmbientNebula />
       <StarfieldWarp />
       <GlowGrid />
