@@ -1,0 +1,118 @@
+.light-bet {
+  animation: lightPulseBlue 1s ease-out;
+}
+
+.light-call {
+  animation: lightPulseGreen 1s ease-out;
+}
+
+.light-raise {
+  animation: lightPulseYellow 1s ease-out;
+}
+
+.light-fold {
+  animation: lightPulseRed 1s ease-out;
+}
+
+.light-flop {
+  animation: lightWaveBlue 1s ease-out;
+}
+
+.light-turn {
+  animation: lightWavePurple 1s ease-out;
+}
+
+.light-river {
+  animation: lightWaveCyan 1s ease-out;
+}
+
+.light-showdown {
+  animation: lightWaveWhite 1s ease-out;
+}
+
+.light-reset {
+  animation: lightFade 1s ease-out;
+}
+
+.light-focused {
+  animation: lightFocused 1s ease-out;
+}
+
+.light-alert {
+  animation: lightAlert 1s ease-out;
+}
+
+.light-calm {
+  animation: lightCalm 1s ease-out;
+}
+
+.light-overdrive {
+  animation: lightOverdrive 1s ease-out;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes lightPulseBlue {
+  0% { background: rgba(0, 150, 255, 0.2); }
+  100% { background: rgba(0, 150, 255, 0); }
+}
+
+@keyframes lightPulseGreen {
+  0% { background: rgba(0, 255, 100, 0.2); }
+  100% { background: rgba(0, 255, 100, 0); }
+}
+
+@keyframes lightPulseYellow {
+  0% { background: rgba(255, 255, 0, 0.2); }
+  100% { background: rgba(255, 255, 0, 0); }
+}
+
+@keyframes lightPulseRed {
+  0% { background: rgba(255, 0, 0, 0.2); }
+  100% { background: rgba(255, 0, 0, 0); }
+}
+
+@keyframes lightWaveBlue {
+  0% { background: rgba(0, 120, 255, 0.15); }
+  100% { background: rgba(0, 120, 255, 0); }
+}
+
+@keyframes lightWavePurple {
+  0% { background: rgba(180, 0, 255, 0.15); }
+  100% { background: rgba(180, 0, 255, 0); }
+}
+
+@keyframes lightWaveCyan {
+  0% { background: rgba(0, 255, 255, 0.15); }
+  100% { background: rgba(0, 255, 255, 0); }
+}
+
+@keyframes lightWaveWhite {
+  0% { background: rgba(255, 255, 255, 0.2); }
+  100% { background: rgba(255, 255, 255, 0); }
+}
+
+@keyframes lightFade {
+  0% { background: rgba(255, 255, 255, 0.1); }
+  100% { background: rgba(255, 255, 255, 0); }
+}
+
+@keyframes lightFocused {
+  0% { background: rgba(0, 200, 255, 0.2); }
+  100% { background: rgba(0, 200, 255, 0); }
+}
+
+@keyframes lightAlert {
+  0% { background: rgba(255, 0, 0, 0.3); }
+  100% { background: rgba(255, 0, 0, 0); }
+}
+
+@keyframes lightCalm {
+  0% { background: rgba(0, 255, 255, 0.1); }
+  100% { background: rgba(0, 255, 255, 0); }
+}
+
+@keyframes lightOverdrive {
+  0% { background: rgba(255, 0, 255, 0.3); }
+  100% { background: rgba(255, 0, 255, 0); }
+}

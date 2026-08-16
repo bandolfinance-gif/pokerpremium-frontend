@@ -2,6 +2,8 @@ import React from 'react';
 import PokerEventCore from './PokerEventCore';
 import PokerRoundFlow from './PokerRoundFlow';
 import HologramFXCore from '../components/cockpit/HologramFXCore';
+import SoundFXCore from '../components/cockpit/SoundFXCore';
+import LightFXCore from '../components/cockpit/LightFXCore';
 import HologramHUD from '../components/cockpit/HologramHUD';
 import NeonParticles from '../components/cockpit/NeonParticles';
 import DealerIA from '../components/dealer/DealerIA';
@@ -33,6 +35,8 @@ const CockpitSystem: React.FC = () => {
       <PokerEventCore />
       <PokerRoundFlow />
       <HologramFXCore />
+      <SoundFXCore />
+      <LightFXCore />
       <SoundSystem />
       <HologramSoundFX />
       <CockpitInteractionCore />
