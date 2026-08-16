@@ -21,25 +21,31 @@ const FuturisticTable: React.FC = () => {
       <button
         onClick={() => window.pokerCall()}
         style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
-        Pagar (Call)
+        Call
       </button>
 
       <button
         onClick={() => window.pokerRaise()}
         style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
-        Aumentar (Raise)
+        Raise
       </button>
 
       <button
         onClick={() => window.pokerFold()}
         style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
-        Desistir (Fold)
+        Fold
       </button>
 
       <button
-        onClick={() => window.pokerShowdown()}
+        onClick={() => window.pokerNextStage()}
         style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
-        Showdown
+        Próxima Etapa
+      </button>
+
+      <button
+        onClick={() => window.pokerResetRound()}
+        style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
+        Resetar Rodada
       </button>
 
     </div>

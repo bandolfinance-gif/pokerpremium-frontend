@@ -1,5 +1,6 @@
 import React from 'react';
 import PokerEventCore from './PokerEventCore';
+import PokerRoundFlow from './PokerRoundFlow';
 import HologramHUD from '../components/cockpit/HologramHUD';
 import NeonParticles from '../components/cockpit/NeonParticles';
 import DealerIA from '../components/dealer/DealerIA';
@@ -29,6 +30,7 @@ const CockpitSystem: React.FC = () => {
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
       <PokerEventCore />
+      <PokerRoundFlow />
       <SoundSystem />
       <HologramSoundFX />
       <CockpitInteractionCore />
