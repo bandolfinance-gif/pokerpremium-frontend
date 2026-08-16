@@ -1,0 +1,20 @@
+
+.vr {
+  text-align: center;
+}
+
+.vr button {
+  margin: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: rgba(0, 255, 255, 0.2);
+  border: 1px solid cyan;
+  color: cyan;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.vr button:hover {
+  background: rgba(0, 255, 255, 0.4);
+}
+

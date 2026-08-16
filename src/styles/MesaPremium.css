@@ -1,0 +1,9 @@
+.mesa-premium {
+  animation: mesaGlow 3s infinite;
+}
+
+@keyframes mesaGlow {
+  0% { box-shadow: 0 0 40px #00aaff; }
+  50% { box-shadow: 0 0 60px #33ccff; }
+  100% { box-shadow: 0 0 40px #00aaff; }
+}

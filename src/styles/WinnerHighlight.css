@@ -1,0 +1,11 @@
+.winner-highlight {
+  border: 3px solid #00ffcc;
+  box-shadow: 0 0 25px #00ffcc;
+  animation: winnerPulse 2s infinite;
+}
+
+@keyframes winnerPulse {
+  0% { box-shadow: 0 0 10px #00ffcc; }
+  50% { box-shadow: 0 0 30px #33ffee; }
+  100% { box-shadow: 0 0 10px #00ffcc; }
+}

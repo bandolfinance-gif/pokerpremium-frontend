@@ -1,0 +1,15 @@
+.flip-card {
+  perspective: 1000px;
+  display: inline-block;
+}
+
+.flip-card-inner {
+  width: 80px;
+  height: 110px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flip .flip-card-inner {
+  transform: rotateY(180deg);
+}

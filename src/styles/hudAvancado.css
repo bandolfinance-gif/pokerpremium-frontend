@@ -1,0 +1,44 @@
+.hud-avancado {
+  padding: 20px;
+  border: 2px solid #00eaff;
+  background: rgba(0, 20, 40, 0.6);
+  box-shadow: 0 0 20px #00eaff;
+  backdrop-filter: blur(6px);
+}
+
+.indicadores {
+  display: flex;
+  gap: 20px;
+}
+
+.barra-energia .barra {
+  width: 200px;
+  height: 12px;
+  background: rgba(0, 255, 255, 0.2);
+  border: 1px solid #00eaff;
+  overflow: hidden;
+}
+
+.barra-energia .nivel {
+  height: 100%;
+  background: linear-gradient(90deg, #00eaff, #00ffaa);
+  transition: width 0.3s ease;
+}
+
+.grafico-pulso {
+  margin-top: 20px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.grafico-pulso .linha {
+  width: 100%;
+  height: 2px;
+  background: #00eaff;
+  animation: pulso 1s infinite linear;
+}
+
+@keyframes pulso {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

@@ -1,0 +1,14 @@
+.dealer-avatar {
+  width: 140px;
+  height: 140px;
+  background: url('/assets/dealer_ia.png');
+  background-size: cover;
+  border-radius: 50%;
+  animation: holograma 3s infinite;
+}
+
+@keyframes holograma {
+  0% { filter: drop-shadow(0 0 10px #00aaff); }
+  50% { filter: drop-shadow(0 0 25px #33ccff); }
+  100% { filter: drop-shadow(0 0 10px #00aaff); }
+}
