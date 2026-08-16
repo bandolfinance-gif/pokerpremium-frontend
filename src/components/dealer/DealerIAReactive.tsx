@@ -5,7 +5,7 @@ type Mood = 'CALM' | 'FOCUSED' | 'ALERT' | 'OVERDRIVE';
 const DealerIAReactive: React.FC = () => {
   const [mood, setMood] = useState<Mood>('CALM');
   const [activity, setActivity] = useState(0);
-  const [lastAction, setLastAction] = useState<string>('Nenhuma ação recente');
+  const [contextLine, setContextLine] = useState('Tudo está estável por aqui.');
 
   useEffect(() => {
     const handleEvent = (event: Event) => {
@@ -16,22 +16,22 @@ const DealerIAReactive: React.FC = () => {
 
       if (type === 'click') {
         setMood('FOCUSED');
-        setLastAction('Você fez uma ação precisa.');
+        setContextLine('Boa ação. Você está mantendo o ritmo.');
       }
 
       if (type === 'key') {
         setMood('ALERT');
-        setLastAction('Mudança detectada. Você ajustou algo.');
+        setContextLine('Mudança detectada. Ajuste preciso.');
       }
 
       if (type === 'move') {
         setMood('CALM');
-        setLastAction('Movimento suave. Tudo fluindo.');
+        setContextLine('Movimento suave. Tudo fluindo bem.');
       }
 
       if (activity > 85) {
         setMood('OVERDRIVE');
-        setLastAction('Seu ritmo está intenso.');
+        setContextLine('Seu ritmo está intenso. Estou acompanhando cada detalhe.');
       }
     };
 
@@ -47,13 +47,13 @@ const DealerIAReactive: React.FC = () => {
     };
   }, [activity]);
 
-  const line = (() => {
+  const moodLine = (() => {
     if (mood === 'OVERDRIVE')
-      return 'Você está num ritmo forte. Estou acompanhando tudo com atenção.';
+      return 'Você está num ritmo forte. Vamos manter a clareza.';
     if (mood === 'ALERT')
-      return 'Percebi sua mudança de foco. Vamos manter a clareza nas decisões.';
+      return 'Percebi sua mudança de foco. Continue atento.';
     if (mood === 'FOCUSED')
-      return 'Boa precisão. Continue nesse ritmo.';
+      return 'Boa precisão. Seu foco está sólido.';
     return 'Tudo está estável. Quando quiser avançar, estou aqui.';
   })();
 
@@ -61,8 +61,8 @@ const DealerIAReactive: React.FC = () => {
     <div style={{ position: 'absolute', bottom: 120, right: 40, color: '#00eaff', fontSize: '14px' }}>
       <div>DEALER IA // MODO: {mood}</div>
       <div>ATIVIDADE: {activity}%</div>
-      <div>{line}</div>
-      <div style={{ marginTop: '6px', opacity: 0.8 }}>{lastAction}</div>
+      <div>{moodLine}</div>
+      <div style={{ marginTop: '6px', opacity: 0.85 }}>{contextLine}</div>
     </div>
   );
 };
