@@ -2,6 +2,7 @@ import React from 'react';
 import HologramHUD from '../components/cockpit/HologramHUD';
 import NeonParticles from '../components/cockpit/NeonParticles';
 import DealerIA from '../components/dealer/DealerIA';
+import DealerIAReactive from '../components/dealer/DealerIAReactive';
 import FuturisticTable from '../components/table/FuturisticTable';
 import SoundSystem from './SoundSystem';
 import NeonSidePanels from '../components/cockpit/NeonSidePanels';
@@ -49,6 +50,7 @@ const CockpitSystem: React.FC = () => {
       <HologramHUD />
       <FuturisticTable />
       <DealerIA />
+      <DealerIAReactive />
     </div>
   );
 };
