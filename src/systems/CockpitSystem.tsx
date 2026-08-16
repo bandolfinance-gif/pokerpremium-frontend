@@ -12,6 +12,7 @@ import PulseCore from '../components/cockpit/PulseCore';
 import HologramRing from '../components/cockpit/HologramRing';
 import HologramScanline from '../components/cockpit/HologramScanline';
 import CornerGlow from '../components/cockpit/CornerGlow';
+import QuantumSparks from '../components/cockpit/QuantumSparks';
 
 const CockpitSystem: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const CockpitSystem: React.FC = () => {
       <HologramRing />
       <HologramScanline />
       <CornerGlow />
+      <QuantumSparks />
       <NeonParticles />
       <NeonSidePanels />
       <HUDEnergyBar />

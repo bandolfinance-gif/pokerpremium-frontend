@@ -1,0 +1,23 @@
+.quantum-spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(0,234,255,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0,234,255,0.9);
+  animation: sparkAnim 2.4s infinite ease-in-out;
+  pointer-events: none;
+  top: calc(100% * var(--rand-y));
+  left: calc(100% * var(--rand-x));
+}
+
+.quantum-spark:nth-child(n) {
+  --rand-x: calc((random() * 1));
+  --rand-y: calc((random() * 1));
+}
+
+@keyframes sparkAnim {
+  0% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.4); }
+}
