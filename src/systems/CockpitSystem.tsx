@@ -1,47 +1,14 @@
-// @ts-nocheck
-import React, { useState } from "react";
+import React from 'react';
+import HologramHUD from '../components/cockpit/HologramHUD';
+import NeonParticles from '../components/cockpit/NeonParticles';
 
-export interface ICockpitData {
-  energia: number;
-  alerta: boolean;
-  radar: any;
-  iaStatus: string;
-  fluxo: number;
-  setIaStatus: (s: string) => void;
-  setAlerta: (b: boolean) => void;
-}
-
-export const CockpitContext = React.createContext<ICockpitData>({
-  energia: 100,
-  alerta: false,
-  radar: {},
-  iaStatus: "idle",
-  fluxo: 0,
-  setIaStatus: () => {},
-  setAlerta: () => {}
-});
-
-export function CockpitProvider({ children }) {
-  const [energia] = useState(100);
-  const [alerta, setAlerta] = useState(false);
-  const [iaStatus, setIaStatus] = useState("idle");
-  const [fluxo] = useState(0);
-  const [radar] = useState({});
-
+const CockpitSystem: React.FC = () => {
   return (
-    <CockpitContext.Provider
-      value={{
-        energia,
-        alerta,
-        radar,
-        iaStatus,
-        fluxo,
-        setIaStatus,
-        setAlerta
-      }}
-    >
-      {children}
-    </CockpitContext.Provider>
+    <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
+      <NeonParticles />
+      <HologramHUD />
+    </div>
   );
-}
+};
 
+export default CockpitSystem;
