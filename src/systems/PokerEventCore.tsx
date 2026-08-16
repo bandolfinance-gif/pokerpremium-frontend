@@ -7,7 +7,7 @@ const PokerEventCore: React.FC = () => {
     window.dispatchEvent(event);
   };
 
-  // Funções que você vai chamar na mesa futurista
+  // Eventos públicos que a mesa futurista pode chamar
   window.pokerBet = () => sendPokerEvent('poker-bet');
   window.pokerCall = () => sendPokerEvent('poker-call');
   window.pokerRaise = () => sendPokerEvent('poker-raise');

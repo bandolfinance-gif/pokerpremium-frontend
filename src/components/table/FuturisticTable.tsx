@@ -1,19 +1,47 @@
 import React from 'react';
-import '../../styles/FuturisticTable.css';
 
 const FuturisticTable: React.FC = () => {
+
   return (
-    <div className='futuristic-table-wrapper'>
-      <div className='table-glow-ring'></div>
-      <div className='table-surface'>
-        <div className='table-center-core'></div>
-        <div className='table-slot table-slot-1'></div>
-        <div className='table-slot table-slot-2'></div>
-        <div className='table-slot table-slot-3'></div>
-        <div className='table-slot table-slot-4'></div>
-        <div className='table-slot table-slot-5'></div>
-        <div className='table-slot table-slot-6'></div>
-      </div>
+    <div style={{
+      position: 'absolute',
+      bottom: 40,
+      left: '50%',
+      transform: 'translateX(-50%)',
+      display: 'flex',
+      gap: '20px'
+    }}>
+
+      <button
+        onClick={() => window.pokerBet()}
+        style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
+        Apostar
+      </button>
+
+      <button
+        onClick={() => window.pokerCall()}
+        style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
+        Pagar (Call)
+      </button>
+
+      <button
+        onClick={() => window.pokerRaise()}
+        style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
+        Aumentar (Raise)
+      </button>
+
+      <button
+        onClick={() => window.pokerFold()}
+        style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
+        Desistir (Fold)
+      </button>
+
+      <button
+        onClick={() => window.pokerShowdown()}
+        style={{ padding: '12px 20px', background: '#00eaff', border: 'none', borderRadius: '8px' }}>
+        Showdown
+      </button>
+
     </div>
   );
 };
