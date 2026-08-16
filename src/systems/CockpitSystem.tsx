@@ -86,3 +86,5 @@ import HUDProfilePanel from '../components/hud/HUDProfilePanel';
 <HUDProfilePanel />
 import HUDMatrixGrid from '../components/hud/HUDMatrixGrid';
 <HUDMatrixGrid />
+import HUDThermalMap from '../components/hud/HUDThermalMap';
+<HUDThermalMap />
