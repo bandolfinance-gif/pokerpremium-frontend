@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export const SoundContext = React.createContext({
-  play: (src: string) => {},
-});
+const SoundSystem: React.FC = () => {
+  useEffect(() => {
+    const audio = new Audio('/sounds/cockpit-ambient.ogg');
+    audio.loop = true;
+    audio.volume = 0.35;
+    audio.play().catch(() => {
+      console.warn('Som futurista aguardando interação do usuário.');
+    });
 
-export const SoundSystem = {
-  play(src: string) {
-    new Audio(src).play();
-  },
-  eventoCritico() { console.log('Som: evento crítico'); },
-  energia() { console.log('Som: energia crítica'); },
-  hud() { console.log('Som: HUD alerta'); }
+    return () => {
+      audio.pause();
+    };
+  }, []);
+
+  return null;
 };
 
-
+export default SoundSystem;
