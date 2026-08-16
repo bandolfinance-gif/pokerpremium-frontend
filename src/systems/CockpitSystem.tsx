@@ -98,3 +98,5 @@ import HUDQuantumField from '../components/hud/HUDQuantumField';
 <HUDQuantumField />
 import HUDCryoFlux from '../components/hud/HUDCryoFlux';
 <HUDCryoFlux />
+import HUDCryoFlux from '../components/hud/HUDCryoFlux';
+<HUDCryoFlux />
