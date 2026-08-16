@@ -15,6 +15,7 @@ import CornerGlow from '../components/cockpit/CornerGlow';
 import QuantumSparks from '../components/cockpit/QuantumSparks';
 import AmbientNebula from '../components/cockpit/AmbientNebula';
 import StarfieldWarp from '../components/cockpit/StarfieldWarp';
+import HologramRadar from '../components/cockpit/HologramRadar';
 
 const CockpitSystem: React.FC = () => {
   return (
@@ -32,6 +33,7 @@ const CockpitSystem: React.FC = () => {
       <NeonSidePanels />
       <HUDEnergyBar />
       <EdgeLights />
+      <HologramRadar />
       <HologramHUD />
       <FuturisticTable />
       <DealerIA />

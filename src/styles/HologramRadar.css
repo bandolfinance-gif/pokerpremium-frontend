@@ -1,0 +1,35 @@
+.radar-container {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,234,255,0.4);
+  box-shadow: 0 0 20px rgba(0,234,255,0.6);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.radar-circle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,234,255,0.15), transparent 70%);
+}
+
+.radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    rgba(0,234,255,0.4),
+    rgba(0,234,255,0.0) 40%
+  );
+  animation: radarSweep 2.4s linear infinite;
+}
+
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
