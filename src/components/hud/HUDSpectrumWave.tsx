@@ -1,3 +1,4 @@
+import './HUDSpectrumWave.css';
 import React from 'react';
 import { useHUDState } from './HUDCore';
 
@@ -39,4 +40,3 @@ const HUDSpectrumWave: React.FC = () => {
 };
 
 export default HUDSpectrumWave;
-import './HUDSpectrumWave.css';

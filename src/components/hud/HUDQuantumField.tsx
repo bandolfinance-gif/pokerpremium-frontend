@@ -1,3 +1,4 @@
+import './HUDQuantumField.css';
 import React from 'react';
 import { useHUDState } from './HUDCore';
 
@@ -39,4 +40,3 @@ const HUDQuantumField: React.FC = () => {
 };
 
 export default HUDQuantumField;
-import './HUDQuantumField.css';
