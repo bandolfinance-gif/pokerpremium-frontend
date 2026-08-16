@@ -9,6 +9,7 @@ import HUDEnergyBar from '../components/cockpit/HUDEnergyBar';
 import EdgeLights from '../components/cockpit/EdgeLights';
 import GlowGrid from '../components/cockpit/GlowGrid';
 import PulseCore from '../components/cockpit/PulseCore';
+import HologramRing from '../components/cockpit/HologramRing';
 
 const CockpitSystem: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const CockpitSystem: React.FC = () => {
       <SoundSystem />
       <GlowGrid />
       <PulseCore />
+      <HologramRing />
       <NeonParticles />
       <NeonSidePanels />
       <HUDEnergyBar />
