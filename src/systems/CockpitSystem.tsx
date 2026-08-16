@@ -17,6 +17,7 @@ import AmbientNebula from '../components/cockpit/AmbientNebula';
 import StarfieldWarp from '../components/cockpit/StarfieldWarp';
 import HologramRadar from '../components/cockpit/HologramRadar';
 import HologramCompass from '../components/cockpit/HologramCompass';
+import StatusPanel from '../components/cockpit/StatusPanel';
 
 const CockpitSystem: React.FC = () => {
   return (
@@ -36,6 +37,7 @@ const CockpitSystem: React.FC = () => {
       <EdgeLights />
       <HologramRadar />
       <HologramCompass />
+      <StatusPanel />
       <HologramHUD />
       <FuturisticTable />
       <DealerIA />

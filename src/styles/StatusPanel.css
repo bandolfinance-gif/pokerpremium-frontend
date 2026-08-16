@@ -1,0 +1,47 @@
+.status-panel {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 220px;
+  padding: 16px;
+  background: rgba(0,234,255,0.08);
+  border: 2px solid rgba(0,234,255,0.4);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,234,255,0.6);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.status-title {
+  font-size: 14px;
+  color: #00eaff;
+  margin-bottom: 12px;
+  text-shadow: 0 0 8px #00eaff;
+}
+
+.status-bar {
+  margin-bottom: 12px;
+}
+
+.status-label {
+  font-size: 12px;
+  color: #00eaff;
+  margin-bottom: 4px;
+}
+
+.status-fill {
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #00eaff, #0088ff);
+  animation: statusPulse 3s infinite ease-in-out;
+}
+
+.status-fill.energy { width: 90%; }
+.status-fill.shield { width: 70%; }
+.status-fill.core { width: 50%; }
+
+@keyframes statusPulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
