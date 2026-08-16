@@ -30,7 +30,24 @@ const DealerIAReactive: React.FC = () => {
         setContextLine('Movimento suave. Tudo fluindo bem.');
       }
 
-      // Eventos do poker — frases profissionais
+      // Ações do jogador — frases avançadas
+      if (type === 'poker-bet') {
+        setContextLine('Aposta registrada. Ajustando leitura da mesa.');
+      }
+
+      if (type === 'poker-call') {
+        setContextLine('Call detectado. Mantendo estabilidade.');
+      }
+
+      if (type === 'poker-raise') {
+        setContextLine('Raise identificado. A mesa mudou de tom.');
+      }
+
+      if (type === 'poker-fold') {
+        setContextLine('Jogador desistiu. Fluxo atualizado.');
+      }
+
+      // Etapas da rodada — frases profissionais
       if (type === 'poker-flop') {
         setContextLine('Flop revelado. A dinâmica mudou.');
       }
