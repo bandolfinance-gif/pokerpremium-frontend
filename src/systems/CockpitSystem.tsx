@@ -76,3 +76,5 @@ import HUDRadar from '../components/hud/HUDRadar';
 <HUDRadar />
 import HUDCompass from '../components/hud/HUDCompass';
 <HUDCompass />
+import HUDRoundFlow from '../components/hud/HUDRoundFlow';
+<HUDRoundFlow />
