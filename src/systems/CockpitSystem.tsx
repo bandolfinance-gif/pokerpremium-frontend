@@ -13,11 +13,13 @@ import HologramRing from '../components/cockpit/HologramRing';
 import HologramScanline from '../components/cockpit/HologramScanline';
 import CornerGlow from '../components/cockpit/CornerGlow';
 import QuantumSparks from '../components/cockpit/QuantumSparks';
+import AmbientNebula from '../components/cockpit/AmbientNebula';
 
 const CockpitSystem: React.FC = () => {
   return (
     <div style={{ position: 'relative', width: '100vw', height: '100vh' }}>
       <SoundSystem />
+      <AmbientNebula />
       <GlowGrid />
       <PulseCore />
       <HologramRing />
