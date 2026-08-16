@@ -19,6 +19,7 @@ import HologramRadar from '../components/cockpit/HologramRadar';
 import HologramCompass from '../components/cockpit/HologramCompass';
 import StatusPanel from '../components/cockpit/StatusPanel';
 import CockpitCommandPanel from '../components/cockpit/CockpitCommandPanel';
+import AdvancedIndicators from '../components/cockpit/AdvancedIndicators';
 
 const CockpitSystem: React.FC = () => {
   return (
@@ -39,6 +40,7 @@ const CockpitSystem: React.FC = () => {
       <HologramRadar />
       <HologramCompass />
       <StatusPanel />
+      <AdvancedIndicators />
       <CockpitCommandPanel />
       <HologramHUD />
       <FuturisticTable />

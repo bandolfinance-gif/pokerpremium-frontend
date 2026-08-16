@@ -1,0 +1,42 @@
+.advanced-indicators {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 240px;
+  padding: 16px;
+  background: rgba(0,234,255,0.08);
+  border: 2px solid rgba(0,234,255,0.4);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,234,255,0.6);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.indicator {
+  margin-bottom: 14px;
+}
+
+.indicator-label {
+  font-size: 12px;
+  color: #00eaff;
+  margin-bottom: 4px;
+}
+
+.indicator-bar {
+  height: 10px;
+  background: rgba(0,234,255,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.indicator-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00eaff, #0088ff);
+  animation: indicatorPulse 3s infinite ease-in-out;
+}
+
+@keyframes indicatorPulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
