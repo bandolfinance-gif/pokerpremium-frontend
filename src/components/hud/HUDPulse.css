@@ -1,0 +1,37 @@
+.pulse-raise {
+  animation: pulseRaise 0.6s ease-out;
+}
+
+.pulse-showdown {
+  animation: pulseShowdown 0.6s ease-out;
+}
+
+.pulse-overdrive {
+  animation: pulseOverdrive 0.6s ease-out;
+}
+
+.pulse-energy {
+  animation: pulseEnergy 0.6s ease-out;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes pulseRaise {
+  0% { background: rgba(255, 255, 0, 0.25); }
+  100% { background: rgba(255, 255, 0, 0); }
+}
+
+@keyframes pulseShowdown {
+  0% { background: rgba(255, 255, 255, 0.25); }
+  100% { background: rgba(255, 255, 255, 0); }
+}
+
+@keyframes pulseOverdrive {
+  0% { background: rgba(255, 0, 255, 0.35); }
+  100% { background: rgba(255, 0, 255, 0); }
+}
+
+@keyframes pulseEnergy {
+  0% { background: rgba(0, 255, 200, 0.25); }
+  100% { background: rgba(0, 255, 200, 0); }
+}

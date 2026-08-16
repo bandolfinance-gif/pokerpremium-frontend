@@ -11,7 +11,7 @@ import DealerIAReactive from '../components/dealer/DealerIAReactive';
 import FuturisticTable from '../components/table/FuturisticTable';
 import SoundSystem from './SoundSystem';
 import NeonSidePanels from '../components/cockpit/NeonSidePanels';
-import HUDEnergyBar from '../components/cockpit/HUDEnergyBar';
+import HUDEnergyBar from '../components/hud/HUDEnergyBar';
 import EdgeLights from '../components/cockpit/EdgeLights';
 import GlowGrid from '../components/cockpit/GlowGrid';
 import PulseCore from '../components/cockpit/PulseCore';
@@ -66,3 +66,13 @@ const CockpitSystem: React.FC = () => {
 };
 
 export default CockpitSystem;
+import HUDCore from '../components/hud/HUDCore';
+<HUDCore />
+import HUDPulse from '../components/hud/HUDPulse';
+<HUDPulse />
+import HUDIndicators from '../components/hud/HUDIndicators';
+<HUDIndicators />
+import HUDRadar from '../components/hud/HUDRadar';
+<HUDRadar />
+import HUDCompass from '../components/hud/HUDCompass';
+<HUDCompass />

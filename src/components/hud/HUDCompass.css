@@ -1,0 +1,37 @@
+.compass-focused {
+  animation: compassSpinBlue 1.2s ease-out;
+}
+
+.compass-alert {
+  animation: compassSpinRed 1.2s ease-out;
+}
+
+.compass-calm {
+  animation: compassSpinCyan 1.2s ease-out;
+}
+
+.compass-overdrive {
+  animation: compassSpinMagenta 1.2s ease-out;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes compassSpinBlue {
+  0% { transform: rotate(0deg); border-color: #00eaff; }
+  100% { transform: rotate(360deg); border-color: #00aaff; }
+}
+
+@keyframes compassSpinRed {
+  0% { transform: rotate(0deg); border-color: #ff4444; }
+  100% { transform: rotate(360deg); border-color: #ff0000; }
+}
+
+@keyframes compassSpinCyan {
+  0% { transform: rotate(0deg); border-color: #00ffee; }
+  100% { transform: rotate(360deg); border-color: #00cccc; }
+}
+
+@keyframes compassSpinMagenta {
+  0% { transform: rotate(0deg); border-color: #ff00ff; }
+  100% { transform: rotate(360deg); border-color: #cc00cc; }
+}
