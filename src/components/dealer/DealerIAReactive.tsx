@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 type Mood = 'CALM' | 'FOCUSED' | 'ALERT' | 'OVERDRIVE';
-type Profile = 'ANALYTIC' | 'CALM' | 'DIRECT' | 'STRATEGIC';
 
 const DealerIAReactive: React.FC = () => {
   const [mood, setMood] = useState<Mood>('CALM');
   const [activity, setActivity] = useState(0);
-  const [profile, setProfile] = useState<Profile>('CALM');
-  const [contextLine, setContextLine] = useState('Sistema estável. Monitorando parâmetros.');
+  const [contextLine, setContextLine] = useState('Tudo está estável por aqui.');
 
   useEffect(() => {
     const handleEvent = (event: Event) => {
@@ -16,29 +14,46 @@ const DealerIAReactive: React.FC = () => {
 
       setActivity(prev => Math.min(prev + 5, 100));
 
-      if (activity < 30) setProfile('CALM');
-      else if (activity < 60) setProfile('ANALYTIC');
-      else if (activity < 85) setProfile('DIRECT');
-      else setProfile('STRATEGIC');
-
+      // Eventos do cockpit
       if (type === 'click') {
         setMood('FOCUSED');
-        setContextLine('Ação registrada. Precisão adequada.');
+        setContextLine('Boa ação. Você está mantendo o ritmo.');
       }
 
       if (type === 'key') {
         setMood('ALERT');
-        setContextLine('Entrada detectada. Ajuste processado.');
+        setContextLine('Mudança detectada. Ajuste preciso.');
       }
 
       if (type === 'move') {
         setMood('CALM');
-        setContextLine('Movimento suave. Fluxo operacional normal.');
+        setContextLine('Movimento suave. Tudo fluindo bem.');
+      }
+
+      // Eventos do poker
+      if (type === 'poker-bet') {
+        setContextLine('Aposta detectada. Ajustando leitura da mesa.');
+      }
+
+      if (type === 'poker-call') {
+        setContextLine('Call registrado. Mantendo estabilidade.');
+      }
+
+      if (type === 'poker-raise') {
+        setContextLine('Raise identificado. Recalculando dinâmica.');
+      }
+
+      if (type === 'poker-fold') {
+        setContextLine('Jogador desistiu. Fluxo atualizado.');
+      }
+
+      if (type === 'poker-showdown') {
+        setContextLine('Showdown iniciado. Processando leitura final.');
       }
 
       if (activity > 85) {
         setMood('OVERDRIVE');
-        setContextLine('Alta atividade. Recomendação: manter consistência.');
+        setContextLine('Seu ritmo está intenso. Estou acompanhando cada detalhe.');
       }
     };
 
@@ -56,22 +71,12 @@ const DealerIAReactive: React.FC = () => {
 
   const moodLine = (() => {
     if (mood === 'OVERDRIVE')
-      return 'Ritmo elevado. Ajustando análise para acompanhar.';
+      return 'Você está num ritmo forte. Vamos manter a clareza.';
     if (mood === 'ALERT')
-      return 'Mudança de foco detectada. Mantendo precisão.';
+      return 'Percebi sua mudança de foco. Continue atento.';
     if (mood === 'FOCUSED')
-      return 'Concentração adequada. Continuando monitoramento.';
-    return 'Operação estável. Sistema pronto para novas ações.';
-  })();
-
-  const profileLine = (() => {
-    if (profile === 'ANALYTIC')
-      return 'Analisando padrões de interação.';
-    if (profile === 'DIRECT')
-      return 'Continuando. Sem desvios.';
-    if (profile === 'STRATEGIC')
-      return 'Avaliando impacto das próximas decisões.';
-    return 'Fluxo operacional dentro do esperado.';
+      return 'Boa precisão. Seu foco está sólido.';
+    return 'Tudo está estável. Quando quiser avançar, estou aqui.';
   })();
 
   return (
@@ -80,7 +85,6 @@ const DealerIAReactive: React.FC = () => {
       <div>ATIVIDADE: {activity}%</div>
       <div>{moodLine}</div>
       <div style={{ marginTop: '6px', opacity: 0.85 }}>{contextLine}</div>
-      <div style={{ marginTop: '6px', opacity: 0.75 }}>{profileLine}</div>
     </div>
   );
 };
