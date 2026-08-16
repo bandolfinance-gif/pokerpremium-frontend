@@ -5,6 +5,7 @@ import DealerIA from '../components/dealer/DealerIA';
 import FuturisticTable from '../components/table/FuturisticTable';
 import SoundSystem from './SoundSystem';
 import NeonSidePanels from '../components/cockpit/NeonSidePanels';
+import HUDEnergyBar from '../components/cockpit/HUDEnergyBar';
 
 const CockpitSystem: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const CockpitSystem: React.FC = () => {
       <SoundSystem />
       <NeonParticles />
       <NeonSidePanels />
+      <HUDEnergyBar />
       <HologramHUD />
       <FuturisticTable />
       <DealerIA />
