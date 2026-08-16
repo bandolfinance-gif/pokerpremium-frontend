@@ -33,16 +33,16 @@ const DealerIAReactive: React.FC = () => {
   }, [activity]);
 
   const line = (() => {
-    if (mood === 'OVERDRIVE') return 'Você está intenso… gosto disso. Vamos acelerar.';
-    if (mood === 'ALERT') return 'Percebi sua mudança de ritmo. Estou acompanhando.';
-    if (mood === 'FOCUSED') return 'Seu foco aumentou. Estou aqui com você.';
-    return 'Tudo está estável. Pronto para o próximo movimento.';
+    if (mood === 'OVERDRIVE') return 'Você acelerou o ritmo. Estou acompanhando cada detalhe.';
+    if (mood === 'ALERT') return 'Percebi sua mudança de foco. Vamos manter a precisão.';
+    if (mood === 'FOCUSED') return 'Boa concentração. Continue assim.';
+    return 'Tudo está estável por aqui. Quando quiser, seguimos.';
   })();
 
   return (
     <div style={{ position: 'absolute', bottom: 120, right: 40, color: '#00eaff', fontSize: '14px' }}>
-      <div>DEALER IA // MODE: {mood}</div>
-      <div>ACTIVITY: {activity}%</div>
+      <div>DEALER IA // MODO: {mood}</div>
+      <div>ATIVIDADE: {activity}%</div>
       <div>{line}</div>
     </div>
   );
