@@ -18,29 +18,34 @@ const HUDVortexField: React.FC = () => {
   }, [hud.action, hud.mood]);
 
   return (
-    <div style={{
-      position: 'absolute',
-      top: 1460,
-      left: 20,
-      width: '300px',
-      height: '160px',
-      borderRadius: '10px',
-      background: 'rgba(0,0,0,0.35)',
-      border: '1px solid #00eaff',
-      boxShadow: '0 0 12px #00eaff',
-      overflow: 'hidden'
-    }}>
+    <div
+      style={{
+        position: 'absolute',
+        top: 1460,
+        left: 20,
+        width: '300px',
+        height: '160px',
+        borderRadius: '10px',
+        background: 'rgba(0,0,0,0.35)',
+        border: '1px solid #00eaff',
+        boxShadow: '0 0 12px #00eaff',
+        overflow: 'hidden',
+      }}
+    >
       {vortex && (
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'rgba(255,0,255,0.25)',
-          animation: 'vortexSpin 1.2s linear',
-          filter: 'blur(18px)'
-        }} />
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(255,0,255,0.25)',
+            animation: 'vortexSpin 1.2s linear',
+            filter: 'blur(18px)',
+          }}
+        />
       )}
     </div>
   );
 };
 
 export default HUDVortexField;
+
