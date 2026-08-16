@@ -80,3 +80,5 @@ import HUDRoundFlow from '../components/hud/HUDRoundFlow';
 <HUDRoundFlow />
 import HUDActionFlow from '../components/hud/HUDActionFlow';
 <HUDActionFlow />
+import HUDIAState from '../components/hud/HUDIAState';
+<HUDIAState />
