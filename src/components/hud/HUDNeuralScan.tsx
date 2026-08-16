@@ -41,3 +41,4 @@ const HUDNeuralScan: React.FC = () => {
 };
 
 export default HUDNeuralScan;
+import './HUDNeuralScan.css';

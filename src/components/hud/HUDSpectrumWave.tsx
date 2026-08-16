@@ -39,3 +39,4 @@ const HUDSpectrumWave: React.FC = () => {
 };
 
 export default HUDSpectrumWave;
+import './HUDSpectrumWave.css';

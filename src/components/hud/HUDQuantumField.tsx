@@ -39,3 +39,4 @@ const HUDQuantumField: React.FC = () => {
 };
 
 export default HUDQuantumField;
+import './HUDQuantumField.css';

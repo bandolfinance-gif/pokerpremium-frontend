@@ -34,3 +34,4 @@ const HUDCryoFlux: React.FC = () => {
 };
 
 export default HUDCryoFlux;
+import './HUDCryoFlux.css';

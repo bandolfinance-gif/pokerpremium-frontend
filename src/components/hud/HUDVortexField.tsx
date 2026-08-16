@@ -43,3 +43,4 @@ const HUDVortexField: React.FC = () => {
 };
 
 export default HUDVortexField;
+import './HUDVortexField.css';
