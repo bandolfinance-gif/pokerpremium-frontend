@@ -100,3 +100,5 @@ import HUDCryoFlux from '../components/hud/HUDCryoFlux';
 <HUDCryoFlux />
 import HUDCryoFlux from '../components/hud/HUDCryoFlux';
 <HUDCryoFlux />
+import HUDVortexField from '../components/hud/HUDVortexField';
+<HUDVortexField />
