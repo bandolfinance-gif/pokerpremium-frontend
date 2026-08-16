@@ -1,3 +1,4 @@
+import './HUDVortexField.css';
 import React, { useEffect, useState } from 'react';
 import { useHUDState } from './HUDCore';
 
@@ -43,4 +44,3 @@ const HUDVortexField: React.FC = () => {
 };
 
 export default HUDVortexField;
-import './HUDVortexField.css';
