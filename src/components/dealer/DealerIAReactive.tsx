@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 type Mood = 'CALM' | 'FOCUSED' | 'ALERT' | 'OVERDRIVE';
+type Profile = 'ANALYTIC' | 'CALM' | 'DIRECT' | 'STRATEGIC';
 
 const DealerIAReactive: React.FC = () => {
   const [mood, setMood] = useState<Mood>('CALM');
   const [activity, setActivity] = useState(0);
+  const [profile, setProfile] = useState<Profile>('CALM');
   const [contextLine, setContextLine] = useState('Sistema estável. Monitorando parâmetros.');
 
   useEffect(() => {
@@ -13,6 +15,11 @@ const DealerIAReactive: React.FC = () => {
       const type = e.detail?.type;
 
       setActivity(prev => Math.min(prev + 5, 100));
+
+      if (activity < 30) setProfile('CALM');
+      else if (activity < 60) setProfile('ANALYTIC');
+      else if (activity < 85) setProfile('DIRECT');
+      else setProfile('STRATEGIC');
 
       if (type === 'click') {
         setMood('FOCUSED');
@@ -57,12 +64,23 @@ const DealerIAReactive: React.FC = () => {
     return 'Operação estável. Sistema pronto para novas ações.';
   })();
 
+  const profileLine = (() => {
+    if (profile === 'ANALYTIC')
+      return 'Analisando padrões de interação.';
+    if (profile === 'DIRECT')
+      return 'Continuando. Sem desvios.';
+    if (profile === 'STRATEGIC')
+      return 'Avaliando impacto das próximas decisões.';
+    return 'Fluxo operacional dentro do esperado.';
+  })();
+
   return (
     <div style={{ position: 'absolute', bottom: 120, right: 40, color: '#00eaff', fontSize: '14px' }}>
       <div>DEALER IA // MODO: {mood}</div>
       <div>ATIVIDADE: {activity}%</div>
       <div>{moodLine}</div>
       <div style={{ marginTop: '6px', opacity: 0.85 }}>{contextLine}</div>
+      <div style={{ marginTop: '6px', opacity: 0.75 }}>{profileLine}</div>
     </div>
   );
 };
