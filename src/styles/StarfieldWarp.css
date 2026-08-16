@@ -1,0 +1,22 @@
+.warp-star {
+  position: absolute;
+  width: 2px;
+  height: 12px;
+  background: rgba(255,255,255,0.9);
+  top: calc(100% * var(--rand-y));
+  left: calc(100% * var(--rand-x));
+  opacity: 0.7;
+  transform: translateY(0);
+  animation: warpAnim 1.2s linear infinite;
+  pointer-events: none;
+}
+
+.warp-star:nth-child(n) {
+  --rand-x: calc((random() * 1));
+  --rand-y: calc((random() * 1));
+}
+
+@keyframes warpAnim {
+  from { transform: translateY(0); opacity: 0.7; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
