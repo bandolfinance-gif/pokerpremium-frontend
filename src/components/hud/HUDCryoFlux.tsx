@@ -1,37 +1,31 @@
-import React from 'react';
-import { useHUDState } from './HUDCore';
+import React from "react";
 
-const HUDCryoFlux: React.FC = () => {
-  const hud = useHUDState();
+interface HUDCryoFluxProps {
+  intensity?: number;
+}
 
-  const isCalm = hud.mood === 'CALM' || hud.activity < 40;
-
+export const HUDCryoFlux: React.FC<HUDCryoFluxProps> = ({ intensity = 0.8 }) => {
   return (
-    <div style={{
-      position: 'absolute',
-      top: 1280,
-      left: 20,
-      width: '300px',
-      height: '160px',
-      borderRadius: '10px',
-      background: 'rgba(0,0,0,0.35)',
-      border: '1px solid #00eaff',
-      boxShadow: '0 0 12px #00eaff',
-      overflow: 'hidden'
-    }}>
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: isCalm
-          ? 'rgba(0,180,255,0.35)'
-          : 'rgba(0,255,200,0.15)',
-        animation: isCalm ? 'cryoFlux 3s ease-in-out infinite' : 'none',
-        filter: 'blur(22px)',
-        opacity: isCalm ? 0.9 : 0.4
-      }} />
+    <div
+      style={{
+        width: "100%",
+        height: "120px",
+        background: "linear-gradient(90deg, #00eaff, #0066ff)",
+        opacity: intensity,
+        borderRadius: "12px",
+        boxShadow: "0 0 25px rgba(0, 200, 255, 0.6)",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundImage:
+            "repeating-linear-gradient(90deg, transparent 0px, rgba(255,255,255,0.15) 2px, transparent 4px)",
+        }}
+      />
     </div>
   );
 };
 
 export default HUDCryoFlux;
-import './HUDCryoFlux.css';

@@ -1,35 +1,30 @@
-import React from 'react';
-import { useHUDState } from './HUDCore';
+import React from "react";
 
-const HUDMatrixGrid: React.FC = () => {
-  const hud = useHUDState();
-
-  const intensity = hud.activity / 100;
-
+export const HUDMatrixGrid: React.FC = () => {
   return (
-    <div style={{
-      position: 'absolute',
-      top: 380,
-      left: 20,
-      width: '300px',
-      height: '160px',
-      borderRadius: '10px',
-      background: 'rgba(0,0,0,0.35)',
-      border: '1px solid #00eaff',
-      boxShadow: '0 0 12px #00eaff',
-      overflow: 'hidden'
-    }}>
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        backgroundImage: 
-          linear-gradient(#00eaff22 1px, transparent 1px),
-          linear-gradient(90deg, #00eaff22 1px, transparent 1px)
-        ,
-        backgroundSize: '20px 20px',
-        animation: 'gridMove 4s linear infinite',
-        opacity: 0.4 + intensity
-      }} />
+    <div
+      style={{
+        width: "100%",
+        height: "200px",
+        display: "grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        gridTemplateRows: "repeat(6, 1fr)",
+        gap: "4px",
+        background: "rgba(0, 0, 0, 0.4)",
+        borderRadius: "10px",
+        padding: "6px",
+      }}
+    >
+      {Array.from({ length: 72 }).map((_, i) => (
+        <div
+          key={i}
+          style={{
+            background: "rgba(0, 255, 255, 0.15)",
+            borderRadius: "4px",
+            boxShadow: "0 0 6px rgba(0, 255, 255, 0.4)",
+          }}
+        />
+      ))}
     </div>
   );
 };
