@@ -100,6 +100,25 @@ interface PokerTableProps {
 const PokerTable: React.FC<PokerTableProps> = ({ userId, token, tableId, state, error, startHand, sendAction, leaveTable }) => {
   const prevStageRef = useRef<string | null>(null);
   const [showHistory, setShowHistory] = useState(false);
+
+  // A mesa inteira (oval + zona de ação) foi desenhada num tamanho fixo
+  // (OVAL_WIDTH=780px) — do jeito que estava, em qualquer tela de celular
+  // (~375-428px) ela simplesmente estourava a largura da tela, cortando
+  // botões e deixando tudo "deslinhado". Em vez de reescrever toda a
+  // matemática de posicionamento (arco dos assentos etc.) em unidades
+  // relativas, escala a mesa inteira pra caber na largura disponível,
+  // mantendo os mesmos cálculos internos em pixels intactos.
+  const tableWrapRef = useRef<HTMLDivElement>(null);
+  const [tableScale, setTableScale] = useState(1);
+  useEffect(() => {
+    const recomputeScale = () => {
+      const available = tableWrapRef.current?.parentElement?.clientWidth ?? window.innerWidth;
+      setTableScale(Math.min(1, (available - 24) / OVAL_WIDTH));
+    };
+    recomputeScale();
+    window.addEventListener('resize', recomputeScale);
+    return () => window.removeEventListener('resize', recomputeScale);
+  }, []);
   // Mudo do som DOS JOGADORES na câmera, separado do mudo da voz da
   // dealer (ChatBox) — dá pra combinar dos dois jeitos: só dealer, só
   // jogadores, os dois juntos, ou nenhum.
@@ -264,11 +283,12 @@ const PokerTable: React.FC<PokerTableProps> = ({ userId, token, tableId, state, 
       )}
 
       <div
+        ref={tableWrapRef}
         style={{
           position: 'absolute',
           top: 'calc(50% + 60px)',
           left: '50%',
-          transform: 'translate(-50%, -50%)',
+          transform: `translate(-50%, -50%) scale(${tableScale})`,
           width: OVAL_WIDTH,
           height: OVAL_HEIGHT + ACTION_ZONE_HEIGHT,
         }}

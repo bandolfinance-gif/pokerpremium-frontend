@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
 import reportWebVitals from './reportWebVitals';
+import { listenForInstallPrompt, registerServiceWorker } from './services/installPrompt';
+
+registerServiceWorker();
+listenForInstallPrompt();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

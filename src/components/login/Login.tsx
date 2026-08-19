@@ -94,10 +94,8 @@ const Login: React.FC<LoginProps> = ({ onAuthenticated }) => {
           <span className="login-logo-premium">Premium</span>
         </div>
 
-        {mode === 'register' ? (
+        {mode === 'register' && (
           <div className="role-badge">{theme.icon} {ROLE_SUBTITLE[role]}</div>
-        ) : (
-          <div className="login-subtitle">Cockpit de IA para poker</div>
         )}
 
         <form onSubmit={handleSubmit}>
