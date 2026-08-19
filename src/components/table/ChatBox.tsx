@@ -33,6 +33,13 @@ const ChatBox: React.FC<ChatBoxProps> = ({ token, tableId }) => {
   const socketRef = useRef<WebSocket | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
+  // No celular a caixa de chat (fixa no canto) ficava em cima do botão
+  // de FOLD/CALL/RAISE, que também é ancorado embaixo — atrapalhava a
+  // jogada. Em telas estreitas ela começa recolhida, só um ícone
+  // pequeno no canto, sem tomar o espaço da área de ação; o jogador abre
+  // quando quiser ler/escrever.
+  const [minimized, setMinimized] = useState(() => window.innerWidth < 640);
+
   useEffect(() => {
     setMessages([]);
     fetchChatHistory(tableId, token).then(setMessages).catch(() => {});
@@ -87,6 +94,34 @@ const ChatBox: React.FC<ChatBoxProps> = ({ token, tableId }) => {
     setDealerGender(next);
   };
 
+  if (minimized) {
+    return (
+      <button
+        onClick={() => setMinimized(false)}
+        title="Abrir chat da mesa"
+        style={{
+          position: 'absolute',
+          bottom: 16,
+          right: 16,
+          width: 44,
+          height: 44,
+          borderRadius: '50%',
+          border: '1px solid #00eaff',
+          background: 'rgba(0,0,0,0.65)',
+          color: '#00eaff',
+          boxShadow: '0 0 12px rgba(0,234,255,0.4)',
+          fontSize: 18,
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        💬
+      </button>
+    );
+  }
+
   return (
     <div
       style={{
@@ -118,6 +153,22 @@ const ChatBox: React.FC<ChatBoxProps> = ({ token, tableId }) => {
       >
         <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>CHAT DA MESA</span>
         <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
+          <button
+            onClick={() => setMinimized(true)}
+            title="Minimizar chat"
+            style={{
+              flexShrink: 0,
+              background: 'transparent',
+              border: '1px solid rgba(0,234,255,0.4)',
+              borderRadius: 4,
+              color: '#00eaff',
+              fontSize: 10,
+              padding: '2px 6px',
+              cursor: 'pointer',
+            }}
+          >
+            ▁
+          </button>
           <button
             onClick={toggleDealerGender}
             title={dealerGender === 'male' ? 'Dealer: masculino (clique pra trocar)' : 'Dealer: feminino (clique pra trocar)'}

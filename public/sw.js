@@ -7,7 +7,7 @@
 // Sempre pega da rede primeiro; cache é só um fallback pra quando a rede
 // cai de verdade (modo avião, sem sinal), nunca a fonte preferida.
 const CACHE_NAME = "pokerpremium-shell-v2";
-const SHELL_ASSETS = ["/manifest.json", "/logo-icon.svg"];
+const SHELL_ASSETS = ["/manifest.json", "/logo-icon.svg", "/logo-192.png", "/logo-512.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
