@@ -192,6 +192,8 @@ const Login: React.FC<LoginProps> = ({ onAuthenticated }) => {
           )}
         </div>
       </div>
+
+      <InstallButton />
     </div>
   );
 };
