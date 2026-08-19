@@ -16,7 +16,7 @@ const HUDThermalMap: React.FC = () => {
   return (
     <div style={{
       position: 'absolute',
-      top: 560,
+      top: 380,
       left: 20,
       width: '300px',
       height: '160px',

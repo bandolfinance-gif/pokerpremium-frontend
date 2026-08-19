@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="spadeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eafeff"/>
+      <stop offset="100%" stop-color="#00c2e0"/>
+    </linearGradient>
+    <filter id="glowBlur" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="4.5"/>
+    </filter>
+  </defs>
+
+  <rect width="120" height="120" fill="#05070a"/>
+
+  <!-- glow aura (blurred, behind) -->
+  <g opacity="0.55" filter="url(#glowBlur)">
+    <polygon points="110,60 85,102 35,102 10,60 35,18 85,18" fill="none" stroke="#00eaff" stroke-width="3"/>
+    <text x="60" y="54" text-anchor="middle" dominant-baseline="central"
+      font-family="Arial, 'Segoe UI Symbol', sans-serif" font-size="56" fill="#00eaff">&#9824;</text>
+  </g>
+
+  <!-- crisp badge frame -->
+  <polygon points="110,60 85,102 35,102 10,60 35,18 85,18" fill="none" stroke="#00eaff" stroke-width="1.4"/>
+  <polygon points="104,60 82,97 38,97 16,60 38,23 82,23" fill="none" stroke="#00eaff" stroke-width="0.6" opacity="0.6"/>
+  <circle cx="60" cy="60" r="46" fill="none" stroke="#00eaff" stroke-width="0.5" stroke-dasharray="1.5 5" opacity="0.5"/>
+
+  <!-- small suit accents, inside the hex, around the central spade -->
+  <g fill="#00eaff" opacity="0.85" font-family="Arial, 'Segoe UI Symbol', sans-serif" font-size="12" text-anchor="middle" dominant-baseline="central">
+    <text x="60" y="24">&#9829;</text>
+    <text x="33" y="81">&#9830;</text>
+    <text x="87" y="81">&#9827;</text>
+  </g>
+
+  <!-- crisp spade mark, centered on the hexagon -->
+  <text x="60" y="54" text-anchor="middle" dominant-baseline="central"
+    font-family="Arial, 'Segoe UI Symbol', sans-serif" font-size="56"
+    fill="url(#spadeGrad)" stroke="#ffd76a" stroke-width="1">&#9824;</text>
+</svg>

@@ -17,7 +17,7 @@ const HUDSpectrumWave: React.FC = () => {
   return (
     <div style={{
       position: 'absolute',
-      top: 920,
+      top: 560,
       left: 20,
       width: '300px',
       height: '160px',

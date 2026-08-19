@@ -28,7 +28,7 @@ const HUDRoundFlow: React.FC = () => {
       border: '1px solid #00eaff',
       boxShadow: '0 0 12px #00eaff'
     }}>
-      <div style={stepStyle('preflop')}>Pré-Flop</div>
+      <div style={stepStyle('preflop')}>PrÃ©-Flop</div>
       <div style={stepStyle('flop')}>Flop</div>
       <div style={stepStyle('turn')}>Turn</div>
       <div style={stepStyle('river')}>River</div>

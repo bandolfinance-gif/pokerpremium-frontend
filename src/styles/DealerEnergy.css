@@ -1,9 +1,0 @@
-.dealer-msg {
-  animation: dealerEnergy 1.5s infinite;
-}
-
-@keyframes dealerEnergy {
-  0% { text-shadow: 0 0 10px #00aaff; }
-  50% { text-shadow: 0 0 25px #33ccff; }
-  100% { text-shadow: 0 0 10px #00aaff; }
-}

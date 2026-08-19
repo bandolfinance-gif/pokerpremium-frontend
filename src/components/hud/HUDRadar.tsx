@@ -6,27 +6,32 @@ const HUDRadar: React.FC = () => {
   const [spin, setSpin] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleHudEvent = (event: Event) => {
+    // Antes escutava 'hud-event', um evento que nunca era disparado em
+    // lugar nenhum do app — o radar nunca girava. O evento real (disparado
+    // por PokerTable em toda mudança de fase de verdade) é 'cockpit-event'.
+    const handleCockpitEvent = (event: Event) => {
       const e = event as CustomEvent<{ type: string }>;
       const type = e.detail?.type;
 
-      if (['poker-flop','poker-turn','poker-river','poker-showdown'].includes(type)) {
+      if (type && ['poker-flop', 'poker-turn', 'poker-river', 'poker-showdown'].includes(type)) {
         setSpin('radar-spin');
         setTimeout(() => setSpin(null), 1200);
       }
     };
 
-    window.addEventListener('hud-event', handleHudEvent);
+    window.addEventListener('cockpit-event', handleCockpitEvent);
 
     return () => {
-      window.removeEventListener('hud-event', handleHudEvent);
+      window.removeEventListener('cockpit-event', handleCockpitEvent);
     };
   }, []);
+
+  const sweepColor = hud.mood === 'ALERT' ? '#ff4444' : hud.mood === 'OVERDRIVE' ? '#ff00ff' : '#00ffaa';
 
   return (
     <div style={{
       position: 'absolute',
-      bottom: 20,
+      top: 900,
       right: 20,
       width: '140px',
       height: '140px',
@@ -40,7 +45,7 @@ const HUDRadar: React.FC = () => {
         position: 'absolute',
         inset: 0,
         borderRadius: '50%',
-        border: '2px dashed #00ffaa'
+        border: `2px dashed ${sweepColor}`
       }} />
     </div>
   );

@@ -16,6 +16,14 @@
   border: 4px solid rgba(0, 255, 255, 0.6);
   box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
   animation: pulseNeon 2s infinite ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-logo {
+  width: 70%;
+  height: 70%;
 }
 
 .loading-text {

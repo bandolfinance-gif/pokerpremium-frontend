@@ -5,25 +5,25 @@ const HUDProfilePanel: React.FC = () => {
   const hud = useHUDState();
 
   const profileDesc = (profile: string) => {
-    if (profile === 'ANALITICA') return 'IA focada em padrıes, estatÌsticas e precis„o.';
-    if (profile === 'DIRETA') return 'IA agressiva, objetiva e r·pida nas decisıes.';
+    if (profile === 'ANALITICA') return 'IA focada em padr√µes, estat√≠sticas e precis√£o.';
+    if (profile === 'DIRETA') return 'IA agressiva, objetiva e r√°pida nas decis√µes.';
     if (profile === 'ESTRATEGICA') return 'IA calculista, adaptativa e de longo prazo.';
     return 'IA em modo neutro.';
   };
 
   const moodDesc = (mood: string) => {
-    if (mood === 'FOCUSED') return 'Concentrada e com alta precis„o.';
+    if (mood === 'FOCUSED') return 'Concentrada e com alta precis√£o.';
     if (mood === 'ALERT') return 'Atenta a riscos e movimentos do jogador.';
-    if (mood === 'CALM') return 'Est·vel e processando informaÁıes.';
-    if (mood === 'OVERDRIVE') return 'Processamento m·ximo ativado.';
+    if (mood === 'CALM') return 'Est√°vel e processando informa√ß√µes.';
+    if (mood === 'OVERDRIVE') return 'Processamento m√°ximo ativado.';
     return 'Estado neutro.';
   };
 
   return (
     <div style={{
       position: 'absolute',
-      bottom: 180,
-      left: 200,
+      top: 920,
+      left: 20,
       width: '260px',
       padding: '12px',
       borderRadius: '10px',

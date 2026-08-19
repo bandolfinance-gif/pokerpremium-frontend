@@ -1,14 +1,19 @@
 import React from "react";
+import { useHUDState } from "./HUDCore";
 
-interface HUDCryoFluxProps {
-  intensity?: number;
-}
+// Antes recebia `intensity` via prop com default fixo (0.8), nunca passado
+// por ninguém — sempre parado. Agora acompanha a atividade real da mesa.
+export const HUDCryoFlux: React.FC = () => {
+  const hud = useHUDState();
+  const intensity = 0.4 + (hud.activity / 100) * 0.6;
 
-export const HUDCryoFlux: React.FC<HUDCryoFluxProps> = ({ intensity = 0.8 }) => {
   return (
     <div
       style={{
-        width: "100%",
+        position: "absolute",
+        top: 1180,
+        left: 20,
+        width: "300px",
         height: "120px",
         background: "linear-gradient(90deg, #00eaff, #0066ff)",
         opacity: intensity,

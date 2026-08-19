@@ -21,8 +21,8 @@ const HUDVortexField: React.FC = () => {
     <div
       style={{
         position: 'absolute',
-        top: 1460,
-        left: 20,
+        top: 380,
+        right: 20,
         width: '300px',
         height: '160px',
         borderRadius: '10px',

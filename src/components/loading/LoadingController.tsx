@@ -5,7 +5,8 @@ const LoadingController: React.FC<{ children: React.ReactNode }> = ({ children }
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2500);
+    const skip = new URLSearchParams(window.location.search).get('debug') === '1';
+    const timer = setTimeout(() => setLoading(false), skip ? 0 : 2500);
     return () => clearTimeout(timer);
   }, []);
 

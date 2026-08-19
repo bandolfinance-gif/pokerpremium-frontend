@@ -17,7 +17,7 @@ const HUDCompass: React.FC = () => {
   return (
     <div style={{
       position: 'absolute',
-      bottom: 180,
+      top: 740,
       right: 20,
       width: '120px',
       height: '120px',

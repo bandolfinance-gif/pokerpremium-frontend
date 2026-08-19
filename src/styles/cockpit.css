@@ -1,7 +1,0 @@
-/* cockpit.css corrigido â€” apenas CSS vÃ¡lido */
-
-.cockpit-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}

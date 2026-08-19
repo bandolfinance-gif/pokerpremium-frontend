@@ -21,8 +21,8 @@ const HUDIAState: React.FC = () => {
   return (
     <div style={{
       position: 'absolute',
-      bottom: 20,
-      left: 200,
+      top: 740,
+      left: 20,
       width: '240px',
       padding: '12px',
       borderRadius: '10px',
@@ -66,8 +66,8 @@ const HUDIAState: React.FC = () => {
           : 'none'
       }}>
         {hud.mood === 'OVERDRIVE'
-          ? '? IA EM OVERDRIVE'
-          : 'IA Est�vel'}
+          ? '⚡ IA EM OVERDRIVE'
+          : 'IA Estável'}
       </div>
     </div>
   );

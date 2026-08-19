@@ -17,8 +17,8 @@ const HUDQuantumField: React.FC = () => {
   return (
     <div style={{
       position: 'absolute',
-      top: 1100,
-      left: 20,
+      top: 200,
+      right: 20,
       width: '300px',
       height: '160px',
       borderRadius: '10px',

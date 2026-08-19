@@ -1,9 +1,0 @@
-.player-card {
-  animation: playerCardEnergy 2s infinite;
-}
-
-@keyframes playerCardEnergy {
-  0% { box-shadow: 0 0 10px #00ffcc; }
-  50% { box-shadow: 0 0 30px #33ffee; }
-  100% { box-shadow: 0 0 10px #00ffcc; }
-}
