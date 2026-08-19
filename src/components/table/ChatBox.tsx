@@ -156,18 +156,26 @@ const ChatBox: React.FC<ChatBoxProps> = ({ token, tableId }) => {
           <button
             onClick={() => setMinimized(true)}
             title="Minimizar chat"
+            aria-label="Minimizar chat"
             style={{
               flexShrink: 0,
-              background: 'transparent',
-              border: '1px solid rgba(0,234,255,0.4)',
+              background: 'rgba(0,234,255,0.12)',
+              border: '1px solid rgba(0,234,255,0.5)',
               borderRadius: 4,
               color: '#00eaff',
-              fontSize: 10,
-              padding: '2px 6px',
+              fontSize: 13,
+              fontWeight: 'bold',
+              lineHeight: 1,
+              width: 22,
+              height: 22,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 0,
               cursor: 'pointer',
             }}
           >
-            ▁
+            ✕
           </button>
           <button
             onClick={toggleDealerGender}
