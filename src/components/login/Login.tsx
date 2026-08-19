@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { AuthUser, loginUser, registerUser, TipoCadastro, uploadAvatar, UserRole } from '../../services/authApi';
 import RoleSelect, { ROLE_THEME } from './RoleSelect';
+import InstallButton from './InstallButton';
 
 interface LoginProps {
   onAuthenticated: (user: AuthUser, token: string) => void;

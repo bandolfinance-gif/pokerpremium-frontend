@@ -38,7 +38,9 @@ export const isInstallAvailable = () => deferredPrompt !== null;
 
 export const onInstallAvailabilityChange = (cb: (available: boolean) => void) => {
   listeners.add(cb);
-  return () => listeners.delete(cb);
+  return () => {
+    listeners.delete(cb);
+  };
 };
 
 export const promptInstall = async (): Promise<boolean> => {
