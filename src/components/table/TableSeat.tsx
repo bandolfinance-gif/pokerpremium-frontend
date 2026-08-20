@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import PlayerAvatarRenderer, { PlayerAvatar } from './PlayerAvatarRenderer';
 import Card from './Card';
 import { HandPlayerState } from '../../services/gameSocket';
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+import { resolveMediaUrl } from '../../services/media';
 
 export interface TableSeatData {
   userId: string;
@@ -39,7 +38,7 @@ const TableSeat: React.FC<TableSeatProps> = ({ seat, style, handPlayer, isDealer
   const folded = handPlayer?.folded;
   const ringColor = isActing ? '#ffd76a' : folded ? '#5a6672' : '#00eaff';
   const avatar: PlayerAvatar | undefined = seat.avatarImage
-    ? { id: seat.userId, avatarImage: `${API_URL}${seat.avatarImage}`, avatarType: 'photo' }
+    ? { id: seat.userId, avatarImage: resolveMediaUrl(seat.avatarImage) || '', avatarType: 'photo' }
     : undefined;
 
   const videoRef = useRef<HTMLVideoElement>(null);

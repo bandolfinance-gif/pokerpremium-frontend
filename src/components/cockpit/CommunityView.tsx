@@ -3,9 +3,9 @@ import CommunityFeed from './CommunityFeed';
 import CommunityMembers from './CommunityMembers';
 import CommunityProfile from './CommunityProfile';
 import PlayerAvatarRenderer from '../table/PlayerAvatarRenderer';
+import { resolveMediaUrl } from '../../services/media';
 
 const SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 interface CommunityViewProps {
   userId: string;
@@ -63,7 +63,8 @@ const CommunityView: React.FC<CommunityViewProps> = ({ userId, userName, userAva
     if (t === 'perfil') setViewingProfileId(null);
   };
 
-  const myAvatar = userAvatarImage ? { id: userId, avatarImage: `${API_URL}${userAvatarImage}`, avatarType: 'photo' as const } : undefined;
+  const resolvedMyAvatar = resolveMediaUrl(userAvatarImage);
+  const myAvatar = resolvedMyAvatar ? { id: userId, avatarImage: resolvedMyAvatar, avatarType: 'photo' as const } : undefined;
   const viewingOwnProfile = tab === 'perfil' && !viewingProfileId;
 
   return (

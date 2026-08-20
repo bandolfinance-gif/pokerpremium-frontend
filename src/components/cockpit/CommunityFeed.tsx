@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { addComment, CommunityFeedPost, createPost, fetchPosts, toggleLike } from '../../services/communityApi';
 import PlayerAvatarRenderer from '../table/PlayerAvatarRenderer';
 import { ELEGANT_FONT as SANS } from '../../styles/elegantTheme';
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+import { resolveMediaUrl } from '../../services/media';
 
 interface CommunityFeedProps {
   token: string;
@@ -12,8 +11,10 @@ interface CommunityFeedProps {
   onOpenProfile: (userId: string) => void;
 }
 
-const avatarFor = (id: string, avatarImage: string | null) =>
-  avatarImage ? { id, avatarImage: `${API_URL}${avatarImage}`, avatarType: 'photo' as const } : undefined;
+const avatarFor = (id: string, avatarImage: string | null) => {
+  const resolved = resolveMediaUrl(avatarImage);
+  return resolved ? { id, avatarImage: resolved, avatarType: 'photo' as const } : undefined;
+};
 
 const initialsOf = (name: string) => name.split(' ').map((p) => p[0]).join('').slice(0, 2).toUpperCase();
 
@@ -247,9 +248,9 @@ const CommunityFeed: React.FC<CommunityFeedProps> = ({ token, userAvatarImage, u
             {post.midiaUrl && (
               <div style={{ background: '#000' }}>
                 {post.midiaTipo === 'video' ? (
-                  <video src={`${API_URL}${post.midiaUrl}`} style={{ width: '100%', maxHeight: 420, display: 'block' }} controls />
+                  <video src={resolveMediaUrl(post.midiaUrl) || ''} style={{ width: '100%', maxHeight: 420, display: 'block' }} controls />
                 ) : (
-                  <img src={`${API_URL}${post.midiaUrl}`} alt="" style={{ width: '100%', maxHeight: 420, objectFit: 'cover', display: 'block' }} />
+                  <img src={resolveMediaUrl(post.midiaUrl) || ''} alt="" style={{ width: '100%', maxHeight: 420, objectFit: 'cover', display: 'block' }} />
                 )}
               </div>
             )}

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CommunityMember, fetchMembers, followUser, unfollowUser } from '../../services/communityApi';
 import PlayerAvatarRenderer from '../table/PlayerAvatarRenderer';
 import { ELEGANT_FONT as SANS } from '../../styles/elegantTheme';
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+import { resolveMediaUrl } from '../../services/media';
 
 interface CommunityMembersProps {
   token: string;
@@ -48,7 +47,8 @@ const CommunityMembers: React.FC<CommunityMembersProps> = ({ token, onOpenProfil
         }}
       >
         {members.map((m) => {
-          const avatar = m.avatarImage ? { id: m.id, avatarImage: `${API_URL}${m.avatarImage}`, avatarType: 'photo' as const } : undefined;
+          const resolvedAvatar = resolveMediaUrl(m.avatarImage);
+          const avatar = resolvedAvatar ? { id: m.id, avatarImage: resolvedAvatar, avatarType: 'photo' as const } : undefined;
           return (
             <div
               key={m.id}

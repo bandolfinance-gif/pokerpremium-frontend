@@ -13,8 +13,7 @@ import {
 } from '../../services/communityApi';
 import PlayerAvatarRenderer from '../table/PlayerAvatarRenderer';
 import { ELEGANT_FONT as SANS } from '../../styles/elegantTheme';
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+import { resolveMediaUrl } from '../../services/media';
 
 interface CommunityProfileProps {
   token: string;
@@ -24,8 +23,10 @@ interface CommunityProfileProps {
 }
 
 const initialsOf = (name: string) => name.split(' ').map((p) => p[0]).join('').slice(0, 2).toUpperCase();
-const avatarFor = (id: string, avatarImage: string | null) =>
-  avatarImage ? { id, avatarImage: `${API_URL}${avatarImage}`, avatarType: 'photo' as const } : undefined;
+const avatarFor = (id: string, avatarImage: string | null) => {
+  const resolved = resolveMediaUrl(avatarImage);
+  return resolved ? { id, avatarImage: resolved, avatarType: 'photo' as const } : undefined;
+};
 
 const timeAgo = (iso: string) => {
   const diffMs = Date.now() - new Date(iso).getTime();
@@ -105,9 +106,9 @@ const CommunityProfile: React.FC<CommunityProfileProps> = ({ token, userId, onOp
         {post.midiaUrl && (
           <div style={{ background: '#000' }}>
             {post.midiaTipo === 'video' ? (
-              <video src={`${API_URL}${post.midiaUrl}`} style={{ width: '100%', maxHeight: 360, display: 'block' }} controls />
+              <video src={resolveMediaUrl(post.midiaUrl) || ''} style={{ width: '100%', maxHeight: 360, display: 'block' }} controls />
             ) : (
-              <img src={`${API_URL}${post.midiaUrl}`} alt="" style={{ width: '100%', maxHeight: 360, objectFit: 'cover', display: 'block' }} />
+              <img src={resolveMediaUrl(post.midiaUrl) || ''} alt="" style={{ width: '100%', maxHeight: 360, objectFit: 'cover', display: 'block' }} />
             )}
           </div>
         )}
@@ -283,9 +284,9 @@ const CommunityProfile: React.FC<CommunityProfileProps> = ({ token, userId, onOp
                 style={{ position: 'relative', aspectRatio: '1 / 1', overflow: 'hidden', borderRadius: 4, cursor: 'pointer', background: '#000' }}
               >
                 {post.midiaTipo === 'video' ? (
-                  <video src={`${API_URL}${post.midiaUrl}`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} muted />
+                  <video src={resolveMediaUrl(post.midiaUrl) || ''} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} muted />
                 ) : (
-                  <img src={`${API_URL}${post.midiaUrl}`} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  <img src={resolveMediaUrl(post.midiaUrl) || ''} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 )}
                 {post.midiaTipo === 'video' && (
                   <div style={{ position: 'absolute', top: 6, right: 6, fontSize: 13, textShadow: '0 0 4px rgba(0,0,0,0.8)' }}>▶</div>

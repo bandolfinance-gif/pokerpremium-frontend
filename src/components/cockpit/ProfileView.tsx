@@ -4,8 +4,7 @@ import { changePassword, fetchProfile, Profile, updateProfile } from '../../serv
 import { uploadAvatar } from '../../services/authApi';
 import PlayerAvatarRenderer from '../table/PlayerAvatarRenderer';
 import { ELEGANT_FONT as SANS } from '../../styles/elegantTheme';
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+import { resolveMediaUrl } from '../../services/media';
 
 interface ProfileViewProps {
   token: string;
@@ -158,9 +157,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ token, onProfileUpdate }) => 
     );
   }
 
-  const avatar = profile.avatarImage
-    ? { id: profile.id, avatarImage: `${API_URL}${profile.avatarImage}`, avatarType: 'photo' as const }
-    : undefined;
+  const resolvedAvatar = resolveMediaUrl(profile.avatarImage);
+  const avatar = resolvedAvatar ? { id: profile.id, avatarImage: resolvedAvatar, avatarType: 'photo' as const } : undefined;
   const initials = profile.name.split(' ').map((p) => p[0]).join('').slice(0, 2).toUpperCase();
 
   return (
